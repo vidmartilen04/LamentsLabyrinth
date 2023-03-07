@@ -9,3 +9,22 @@ body{
 	font-weight: 600;
 	color: white;
 }
+#Instructions{
+	display: inline-block;
+	float: left;
+	width:60px;
+	height:62px;
+	padding-left: 10px;
+}
+#labirint{
+	 text-align: center;
+	 margin: auto;
+	 
+}
+#canLab{
+	/*background-color: hsla(20, 51%, 13%, 0.6);*/
+	
+}
+.swal2-html-container, .swal2-text,.swal2-title{
+	color: #E8C588;
+}

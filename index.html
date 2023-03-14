@@ -10,21 +10,56 @@
 		<link rel="stylesheet" href="css/style.css">
 		<style>
 			body{
-				background-image: url('img/PinheadBG.svg');
-				background-repeat:no-repeat;
-				background-size: cover;
-				
+				background-image:url('img/backgroundv1.png');
+  				background-position: center center;
+  				background-repeat: no-repeat;
+  				background-attachment: fixed;
+  				background-size: cover;
 			}
 		</style>
 		<title>Lament's Labyrinth</title>
 	</head>
-	<body>
+	<body onload="swlala()">
+		<audio id="loadAudio" src="sound/boxStart.mp3"></audio>
+		<audio id="inGameAudio" src="sound/InGameAudio.mp3"></audio>
+
+			<script>
+				var sample = document.getElementById("loadAudio");
+				function swlala(){
+					Swal.fire({
+						background: "hsla(20, 51%, 13%)",
+						width:600,
+						height:400,
+		                font: "Cormorant Garamond",
+		                title:'Laments Labyrinth',
+		                html:"You have stumbled upon an unusual box while walking in the forest.<br> You decide to solve it but be careful something might is lurking in the shadows.<br> Are you up for the challenge?",
+							showClass: {
+		                      popup: 'animate__animated animate__backInUp'
+		                      },
+		                      hideClass: {
+		                      popup: 'animate__animated animate__backOutDown'},
+						confirmButtonText: 'Start',
+		                confirmButtonColor: "#E8C588",
+		                backdrop: `
+	                        	hsla(20, 51%, 13%, 0.6)
+	                     	 `     
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					    sample.play();
+					    summonCancas();
+					    
+					  } else{
+					    
+					  }
+					})
+				}
+			</script>
 			<div id="head">
-				<a onclick="instructions()"><img id="Instructions" src="img/Box.png"></a>
+				<a onclick="credits()"><img id="Instructions" src="img/Box.png"></a>
 				Lament's Labyrinth
 		   </div>
 		   <script>
-					function instructions() {
+					function credits() {
 						Swal.fire({
 	                      background: "hsla(20, 51%, 13%)",
 	                      font: "Cormorant Garamond",
@@ -50,21 +85,30 @@
 		   <div id="labirint">
 		   <canvas id="canLab">
 		   	 <script>
-				var canvas=document.getElementById('canLab');
+		   	 	function summonCancas(){
+		   	 	var canvas=document.getElementById('canLab');
 				var ctx=canvas.getContext('2d');
 				canvas.height=500;
 				canvas.width=500;
+
 				var background = new Image();
 				background.src = "img/canvasbox.png";
-
 				ctx.save();
+
 				ctx.globalAlpha = 0.3;
 				ctx.drawImage(background,0,0);
+				}
+
+				function labirint(){
+				document.getElementById('SummonBox').style.display="none";
+				var sample1 = document.getElementById("inGameAudio");
+				sample1.play();
+				var canvas=document.getElementById('canLab');
+				var ctx=canvas.getContext('2d');
 				ctx.restore();
 				ctx.scale(2.05,2.05);
-
-				//function labirint(){
 				ctx.beginPath();
+
 				ctx.lineCap="square";
 				ctx.moveTo(0,0);
 				ctx.lineTo(114,0);
@@ -289,9 +333,12 @@
 				ctx.strokeStyle='#E8C588';
 				ctx.lineWidth=2;
 				ctx.stroke();
-				//}
+				}
 			</script> 
 		   </canvas>
 		  </div>
+		  <button class="buttonStyle" id="SummonBox" onclick="labirint()">Hi World</button>
+
+
 	</body>
 	</html>

@@ -9,7 +9,15 @@
 		<link rel="icon" type="image/x-icon" href="img/Box.ico">
 		<link rel="stylesheet" href="css/style.css">
 		<style>
-		
+			body{
+				background-image: url("img/backgroundv1.png");
+				background-position: center center;
+				background-repeat: no-repeat;
+  				background-attachment: fixed;
+				background-size: cover;
+				max-height: 100%;
+				max-width: 100%;
+			}
 		</style>
 		<title>Lament's Labyrinth</title>
 	</head>
@@ -100,7 +108,8 @@
 
 				function labirint(){
 				
-				document.getElementById('SummonBox').style.display="none"; //button disappearing after starting the MAZE
+				document.getElementById('SummonBox').style.display="none";
+				document.getElementById('Rules').style.display="none"; //buttons disappearing after starting the MAZE
 				
 				var sample1 = document.getElementById("inGameAudio");
 				sample1.play();
@@ -339,11 +348,9 @@
 				}
 			</script> 
 		   </canvas>
-		   <div id="buttons">
-		   <button class="buttonStyle" id="SummonBox" onclick="labirint()" style="width:200px;">Summon the puzzle</button>
+		   <div id="buttons"><button class="buttonStyle" id="SummonBox" onclick="labirint()" style="width:200px;">Start the puzzle</button>
 		   <button class="buttonStyle" id="Rules" onclick="Rules()">How to play</button>
 		   </div>
-		   
 		  </div>
 
 

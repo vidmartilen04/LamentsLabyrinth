@@ -61,14 +61,15 @@
 					}).then((result) => {
 					  if (result.isConfirmed) {
 					    sample.play();
+					    sample1.play();
 					    document.getElementById('canLab').style.visibility = "visible";
 					    setInterval(drawIt, 30);
-					    event(draw); 
-					    
+					    event(draw);
 					  } else{
 		
 					  }
 					})
+
 				}
 			</script>
 			<div id="head">
@@ -102,7 +103,7 @@
 		   <div id="labirint">
 		   <canvas id="canLab" width="700" height="700" onclick="">
 		   	 <script>
-
+					    
 		   	 	var canvas=document.getElementById('canLab');
 				var ctx=canvas.getContext('2d');
 				var background = new Image();
@@ -353,8 +354,10 @@
 					var nar = 1;
 					var dx = 2;
 					var dy = 2;
-					;
+					var play=0;
+
 				    
+					
 					function drawIt() {
 						ctx.fillStyle = "#E8C588";
 						if(nar==1){
@@ -447,11 +450,15 @@
 					if(x==120&&y==238){
 							x=120;
 							y=0;
-							//sample2.loop=false;
-							//sample2.play();
-							//sample2.pause();
-					if(nar==1){
+							play++;
+							if (play==1) {
+							sample1.pause();
+							sample2.loop=false;
+							sample2.play();	
+						}
+					else if(nar==1){
 						nar++;
+
 					}
 					else{
 						ctx.clearRect(x,y,5,5);    

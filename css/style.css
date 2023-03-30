@@ -77,12 +77,14 @@ body{
 	padding-top:10px;
 }
 #canLab{
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-	/*padding-left:27.5%;*/
-	-webkit-animation: puff-in-hor 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	        animation: puff-in-hor 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	   position: relative;
+		top: 5vh;
+		margin: 0 auto;
+		width: 	70vh;
+		height: 70vh;
+		/*background:url("../img/lamentbox.jpg") no-repeat;
+		background-size: cover;*/
+		opacity: 0.5;
 }
 
 .swal2-html-container, .swal2-text{
